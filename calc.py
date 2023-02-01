@@ -1,12 +1,16 @@
-def convert_digit_to_number(exp):
-    """ Convert digit to number """
+def exponential(exp):
+    """ Addition and Subtraction """
     i = 0
 
     while i < len(exp):
-        if exp[i] != '/' and exp[i] != '*' and exp[i] != '/' and exp[i] != '+' and exp[i] != '-':
-            exp[i] = int(exp[i])
-        i = i + 1
+        if exp[i] == '^':
+            ans = pow(exp[i-1], exp[i+1])
+            exp[i-1] = ans
+            exp.pop(i)
+            exp.pop(i)
+            i = 0
 
+        i = i + 1
     return exp
 
 def multiplcation_or_division(exp):
